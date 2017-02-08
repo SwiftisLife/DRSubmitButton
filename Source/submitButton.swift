@@ -14,7 +14,7 @@ import UIKit
     case warning = 3
 }
 
-public class submitButton: UIView {
+public class submitButton: UIView, CAAnimationDelegate {
     
     // Color with default value
     public var normalBackgrounColor: UIColor   = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -262,7 +262,7 @@ public class submitButton: UIView {
         self.tapMaskLayer.addAnimation(scaleAnimation, forKey: "tapAnimation");
     }
     
-    override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         if anim == self.tapMaskLayer.animationForKey("tapAnimation") {
             self.tapMaskLayer.opacity = 0.0;
         }
